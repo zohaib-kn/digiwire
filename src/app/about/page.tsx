@@ -50,7 +50,7 @@ const values = [
 ];
 
 const teamMembers: Array<{ name: string, role: string, image?: string }> = [
-  { name: "Zohaib", role: "Front-end Developer", image: "/img/ZOHAIB.png" },
+  { name: "Zohaib", role: "Front-end Developer", image: "/img/ZOHAIBc.png" },
   { name: "Fardeen", role: "Creative Lead", image: "/img/FARDEEN SIR2.png" },
   { name: "Muneer", role: "Project Lead", image: "/img/MUNEER SIRc.png" },
   { name: "Pranshu", role: "Backend Developer", image: "/img/PRANSHU SIR.png" },
