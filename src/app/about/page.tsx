@@ -55,7 +55,7 @@ const teamMembers: Array<{ name: string, role: string, image?: string }> = [
   { name: "Muneer", role: "Project Lead", image: "/img/MUNEER SIRc.png" },
   { name: "Pranshu", role: "Backend Developer", image: "/img/PRANSHU SIR.png" },
   { name: "Prerna", role: "UX Designer", image: "/img/PRERNA.png" },
-  { name: "Sumaiya", role: "Marketing Lead", image: "/img/SUMAIYA MAM.png" },
+  { name: "Sumaiya", role: "Marketing Lead", image: "/img/.png" },
   { name: "Automation Expert", role: "AI Workflows" },
   { name: "Data Scientist", role: "Data Analytics" },
   { name: "DevOps Engineer", role: "Infrastructure" },
