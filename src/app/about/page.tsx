@@ -1,17 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { 
-  Target, 
-  Sparkles, 
-  Cpu, 
-  TrendingUp, 
-  ChevronRight, 
+import { useState } from 'react';
+import Image from 'next/image';
+import { motion, useReducedMotion, Variants } from 'framer-motion';
+import {
+  Target,
+  Sparkles,
+  Cpu,
+  TrendingUp,
   ArrowRight,
-  ShieldCheck,
-  Zap,
-  Users
 } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -52,32 +49,19 @@ const values = [
   }
 ];
 
-const teamMembers = [
-  {
-    name: "Zohaib",
-    role: "Front-end Developer",
-    gradient: "from-cyan-400 via-sky-400 to-blue-500"
-  },
-  {
-    name: "Creative Lead",
-    role: "Design Strategy",
-    gradient: "from-purple-400 via-pink-400 to-indigo-500"
-  },
-  {
-    name: "Project Lead",
-    role: "Product Delivery",
-    gradient: "from-emerald-400 via-teal-400 to-cyan-500"
-  },
-  {
-    name: "Automation Expert",
-    role: "AI Workflows",
-    gradient: "from-amber-400 via-orange-400 to-rose-500"
-  },
-  {
-    name: "Marketing Lead",
-    role: "Growth Strategy",
-    gradient: "from-indigo-400 via-blue-400 to-purple-500"
-  }
+const teamMembers: Array<{ name: string, role: string, image?: string }> = [
+  { name: "Zohaib", role: "Front-end Developer", image: "/img/ZOHAIB.png" },
+  { name: "Fardeen", role: "Creative Lead", image: "/img/FARDEEN SIR.png" },
+  { name: "Muneer", role: "Project Lead", image: "/img/MUNEER SIR.png" },
+  { name: "Automation Expert", role: "AI Workflows" },
+  { name: "Marketing Lead", role: "Growth Strategy" },
+  { name: "UX Designer", role: "User Experience" },
+  { name: "Backend Developer", role: "System Architecture" },
+  { name: "Data Scientist", role: "Data Analytics" },
+  { name: "DevOps Engineer", role: "Infrastructure" },
+  { name: "Product Manager", role: "Product Strategy" },
+  { name: "QA Lead", role: "Quality Assurance" },
+  { name: "Copywriter", role: "Content Strategy" }
 ];
 
 const processSteps = [
@@ -108,48 +92,135 @@ const processSteps = [
   }
 ];
 
-export default function AboutPage() {
-  const [mounted, setMounted] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+// ── Team Card Component with proper image fallback ──────────────────────
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+interface TeamCardProps {
+  member: typeof teamMembers[0];
+  index: number;
+}
 
-  const animY = shouldReduceMotion ? 0 : 20;
+function TeamCard({ member, index }: TeamCardProps) {
+  const [imageError, setImageError] = useState(false);
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: animY },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.6, 
-        ease: [0.16, 1, 0.3, 1] as const
-      } 
-    }
+  // Generate initials for fallback avatar
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map(word => word[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
   };
 
-  const staggerContainer = {
-    hidden: {},
+  // Consistent fixed aspect ratio (456/560 ≈ 0.814)
+  const cardAspectRatio = "aspect-[456/560]";
+
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{
+        y: -6,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      className={`relative w-full ${cardAspectRatio} rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl border border-slate-200/60 group bg-white`}
+    >
+      {/* Image or Fallback */}
+      {member.image && !imageError ? (
+        <div className="relative w-full h-full overflow-hidden bg-slate-100">
+          <Image
+            src={member.image}
+            alt={member.name}
+            fill
+            className="object-cover object-top transition-all duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:-translate-y-2"
+            onError={() => setImageError(true)}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 25vw"
+          />
+          {/* Gradient overlay at bottom for readability */}
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 to-transparent pointer-events-none z-10 transition-opacity duration-500 group-hover:opacity-80" />
+        </div>
+      ) : (
+        // Gradient background with initials fallback
+        <div className="relative w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+          <div className="w-20 h-20 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-sm border border-white/50">
+            <span className="text-2xl font-bold text-slate-700">
+              {getInitials(member.name)}
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Floating pill label - positioned at bottom of card */}
+      <div className="absolute bottom-4 left-4 right-4 z-10 flex justify-start">
+        <div className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md rounded-full p-1.5 pr-4 shadow-lg border border-white/50 max-w-[92%] sm:max-w-none">
+          <div className="bg-[#0F172A] text-white font-bold text-[11px] sm:text-xs px-2.5 py-1.5 rounded-full whitespace-nowrap shrink-0">
+            {member.name}
+          </div>
+          <div className="text-[10px] sm:text-[11px] font-semibold text-[#475569] whitespace-nowrap shrink-0 pr-1">
+            {member.role}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ── Animation variants ────────────────────────────────────────────────────
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
+
+// ── Main Page Component ──────────────────────────────────────────────────
+
+export default function AboutPage() {
+  const shouldReduceMotion = useReducedMotion();
+  const animY = shouldReduceMotion ? 0 : 20;
+
+  // Adjust fadeUp for reduced motion preference
+  const accessibleFadeUp: Variants = {
+    hidden: { opacity: 0, y: animY },
     visible: {
+      opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.08
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1]
       }
     }
   };
 
-  // Staggered Y offsets on desktop (index % 5)
-  const getDesktopTranslate = (index: number) => {
-    switch (index) {
-      case 0: return "lg:translate-y-8";
-      case 1: return "lg:-translate-y-4";
-      case 2: return "lg:translate-y-12";
-      case 3: return "lg:translate-y-0";
-      case 4: return "lg:translate-y-16";
-      default: return "";
-    }
-  };
+  // Distribute team members into 4 columns (round-robin)
+  const columns = teamMembers.reduce((acc, member, index) => {
+    const colIndex = index % 4;
+    if (!acc[colIndex]) acc[colIndex] = [];
+    acc[colIndex].push(member);
+    return acc;
+  }, [] as typeof teamMembers[0][][]);
+
+  // Column offset classes for staggered look (matches Humaan's pattern)
+  const columnOffsetClasses = [
+    "mt-0",      // Column 1: flush top
+    "mt-16",     // Column 2: offset down
+    "mt-0",      // Column 3: flush top  
+    "mt-16"      // Column 4: offset down
+  ];
 
   return (
     <main className="relative min-h-screen bg-[#F8FAFC] text-[#0F172A] overflow-x-hidden">
@@ -161,21 +232,21 @@ export default function AboutPage() {
 
       {/* ── 1. Hero Section ── */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-28 md:pt-32 pb-16">
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           className="max-w-4xl"
         >
           {/* Eyebrow */}
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-50 border border-cyan-100 rounded-full text-xs font-semibold uppercase tracking-wider text-cyan-600 mb-6">
+          <motion.div variants={accessibleFadeUp} className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-50 border border-cyan-100 rounded-full text-xs font-semibold uppercase tracking-wider text-cyan-600 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
             About DigiWire
           </motion.div>
 
           {/* Heading */}
-          <motion.h1 
-            variants={fadeUp} 
+          <motion.h1
+            variants={accessibleFadeUp}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#0F172A] leading-[1.08] mb-8"
           >
             We build digital systems <br className="hidden sm:inline" />
@@ -183,8 +254,8 @@ export default function AboutPage() {
           </motion.h1>
 
           {/* Subheading */}
-          <motion.p 
-            variants={fadeUp} 
+          <motion.p
+            variants={accessibleFadeUp}
             className="text-lg sm:text-xl md:text-2xl text-[#475569] leading-relaxed max-w-3xl font-normal"
           >
             DigiWire combines strategy, design, software, automation, and marketing to create meaningful digital experiences.
@@ -196,11 +267,11 @@ export default function AboutPage() {
       <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-28 border-t border-[#E2E8F0]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           {/* Left Column: Short title */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp}
+            variants={accessibleFadeUp}
             className="lg:col-span-4"
           >
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F172A]">
@@ -209,7 +280,7 @@ export default function AboutPage() {
           </motion.div>
 
           {/* Right Column: Paragraph blocks */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -217,9 +288,9 @@ export default function AboutPage() {
             className="lg:col-span-8 flex flex-col gap-6"
           >
             {storyParagraphs.map((para, i) => (
-              <motion.p 
-                key={i} 
-                variants={fadeUp} 
+              <motion.p
+                key={i}
+                variants={accessibleFadeUp}
                 className="text-[16px] sm:text-lg text-[#475569] leading-relaxed font-normal"
               >
                 {para}
@@ -240,7 +311,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -250,9 +321,9 @@ export default function AboutPage() {
           {values.map((val, i) => {
             const Icon = val.Icon;
             return (
-              <motion.div 
+              <motion.div
                 key={val.title}
-                variants={fadeUp}
+                variants={accessibleFadeUp}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
                 className="bg-white border border-[#E2E8F0] rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-start gap-4"
               >
@@ -269,7 +340,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* ── 4. Team / People Visual Section ── */}
+      {/* ── 4. Team / People Visual Section (FIXED) ── */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-28 border-t border-[#E2E8F0]">
         <div className="mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F172A] mb-4">
@@ -280,50 +351,28 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Collage Container with Soft Blue/Gray Background */}
+        {/* Team Grid - Matches Humaan's actual layout structure */}
         <div className="bg-gradient-to-b from-[#EFF6FF]/60 to-[#F1F5F9]/60 border border-slate-200/80 rounded-[32px] p-6 sm:p-10 lg:p-16">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8 pb-10 lg:pb-16"
+            className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8"
           >
-            {teamMembers.map((member, i) => (
+            {columns.map((column, colIndex) => (
               <motion.div
-                key={member.name}
-                variants={fadeUp}
-                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
-                className={`relative w-full h-[320px] md:h-[380px] lg:h-[420px] bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200/60 flex flex-col justify-end p-5 group ${getDesktopTranslate(i)}`}
+                key={colIndex}
+                variants={accessibleFadeUp}
+                className={`flex flex-col gap-6 lg:gap-8 ${columnOffsetClasses[colIndex]}`}
               >
-                {/* Visual support gradient placeholder */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`} />
-                
-                {/* Sleek mesh grid overlay */}
-                <div 
-                  className="absolute inset-0 pointer-events-none opacity-[0.03] group-hover:scale-105 transition-transform duration-700" 
-                  style={{ backgroundImage: "radial-gradient(circle, #000 1.2px, transparent 1.2px)", backgroundSize: "20px 20px" }}
-                />
-
-                {/* Ambient glow in center */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 group-hover:opacity-60 transition-opacity">
-                  <div className={`w-32 h-32 rounded-full bg-gradient-to-r ${member.gradient} blur-xl`} />
-                </div>
-
-                {/* User avatar icon in absolute top-right */}
-                <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/80 border border-slate-100/60 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                  <Users className="w-4 h-4 text-slate-500" />
-                </div>
-
-                {/* Humaan-inspired floating custom capsule label */}
-                <div className="relative z-10 inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md rounded-full p-1 shadow-md border border-slate-100/80 max-w-[95%]">
-                  <div className="bg-[#0F172A] text-white font-bold text-[11px] sm:text-xs px-2.5 py-1 rounded-full truncate shrink-0">
-                    {member.name}
-                  </div>
-                  <div className="text-[10px] sm:text-[11px] font-semibold text-[#475569] pr-3 truncate">
-                    {member.role}
-                  </div>
-                </div>
+                {column.map((member, memberIndex) => (
+                  <TeamCard
+                    key={`${colIndex}-${memberIndex}`}
+                    member={member}
+                    index={colIndex * column.length + memberIndex}
+                  />
+                ))}
               </motion.div>
             ))}
           </motion.div>
@@ -346,12 +395,12 @@ export default function AboutPage() {
           <div className="hidden md:block absolute top-[28px] left-[10%] right-[10%] h-0.5 bg-slate-200 -z-10" />
 
           {processSteps.map((step, i) => (
-            <motion.div 
+            <motion.div
               key={step.name}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              variants={fadeUp}
+              variants={accessibleFadeUp}
               className="flex flex-col items-start"
             >
               {/* Number and dot */}
@@ -383,31 +432,31 @@ export default function AboutPage() {
             variants={staggerContainer}
             className="relative z-10 max-w-2xl mx-auto flex flex-col items-center"
           >
-            <motion.h2 
-              variants={fadeUp} 
+            <motion.h2
+              variants={accessibleFadeUp}
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6"
             >
               Let’s build something meaningful.
             </motion.h2>
 
-            <motion.p 
-              variants={fadeUp} 
+            <motion.p
+              variants={accessibleFadeUp}
               className="text-base sm:text-lg text-slate-400 mb-10 leading-relaxed"
             >
               Have a complex system to build or a workflow to automate? Let’s design a digital platform engineered around your growth goals.
             </motion.p>
 
-            <motion.div 
-              variants={fadeUp} 
+            <motion.div
+              variants={accessibleFadeUp}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link 
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold px-8 py-4 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5"
               >
                 Start a Project <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link 
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 hover:border-slate-500 text-white hover:bg-white/5 font-semibold px-8 py-4 transition-all duration-300 hover:-translate-y-0.5"
               >
