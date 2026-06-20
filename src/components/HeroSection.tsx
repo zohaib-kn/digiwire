@@ -93,7 +93,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="text-[#475569] text-base sm:text-lg leading-relaxed max-w-xl"
+            className="text-[#475569] text-lg md:text-xl leading-relaxed max-w-xl"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Grow your business with strategic marketing, creative branding, and premium web development. We build high-performing digital solutions that generate quality leads and drive measurable growth.
@@ -108,14 +108,14 @@ export default function HeroSection() {
           >
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-full font-bold text-white bg-[#0F172A] hover:bg-[#06B6D4] shadow-[0_10px_25px_rgba(15,23,42,0.12)] hover:shadow-[0_10px_25px_rgba(6,182,212,0.22)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base flex items-center gap-2 group"
+              className="px-8 py-4 rounded-full font-bold text-white bg-[#0F172A] hover:bg-[#06B6D4] shadow-[0_10px_25px_rgba(15,23,42,0.12)] hover:shadow-[0_10px_25px_rgba(6,182,212,0.22)] hover:-translate-y-0.5 transition-all duration-300 text-base md:text-lg flex items-center gap-2 group"
             >
               <span>Book a Demo</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="#solutions"
-              className="px-8 py-4 rounded-full font-bold text-[#0F172A] bg-white border border-[#E2E8F0] hover:border-slate-400 hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base shadow-sm"
+              className="px-8 py-4 rounded-full font-bold text-[#0F172A] bg-white border border-[#E2E8F0] hover:border-slate-400 hover:-translate-y-0.5 transition-all duration-300 text-base md:text-lg shadow-sm"
             >
               Explore Services
             </a>
@@ -126,7 +126,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-            className="text-[10px] sm:text-[11px] font-semibold text-slate-400 tracking-[0.15em] uppercase pt-2 select-none"
+            className="text-xs md:text-sm font-semibold text-slate-400 tracking-[0.15em] uppercase pt-2 select-none"
           >
             SEO • Social Media • Websites • Branding • Performance Marketing
           </motion.div>
@@ -154,8 +154,8 @@ export default function HeroSection() {
               <TrendingUp className="w-5 h-5 text-indigo-600" />
             </div>
             <div>
-              <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">SEO Traffic</div>
-              <div className="text-[15px] font-extrabold text-slate-900 mt-0.5">+148% YoY</div>
+              <div className="text-xs md:text-[13px] text-slate-500 font-bold uppercase tracking-wider">SEO Traffic</div>
+              <div className="text-[17px] font-extrabold text-slate-900 mt-0.5">+148% YoY</div>
             </div>
           </motion.div>
 
@@ -178,8 +178,8 @@ export default function HeroSection() {
               <Sparkles className="w-5 h-5 text-pink-600" />
             </div>
             <div>
-              <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Social Media</div>
-              <div className="text-[15px] font-extrabold text-slate-900 mt-0.5">8.4% Engagement</div>
+              <div className="text-xs md:text-[13px] text-slate-500 font-bold uppercase tracking-wider">Social Media</div>
+              <div className="text-[17px] font-extrabold text-slate-900 mt-0.5">8.4% Engagement</div>
             </div>
           </motion.div>
 
@@ -202,8 +202,8 @@ export default function HeroSection() {
               <Globe className="w-5 h-5 text-cyan-600" />
             </div>
             <div>
-              <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Websites</div>
-              <div className="text-[15px] font-extrabold text-slate-900 mt-0.5">99 PageSpeed</div>
+              <div className="text-xs md:text-[13px] text-slate-500 font-bold uppercase tracking-wider">Websites</div>
+              <div className="text-[17px] font-extrabold text-slate-900 mt-0.5">99 PageSpeed</div>
             </div>
           </motion.div>
 
@@ -226,8 +226,8 @@ export default function HeroSection() {
               <Target className="w-5 h-5 text-emerald-600" />
             </div>
             <div>
-              <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Performance Ads</div>
-              <div className="text-[15px] font-extrabold text-slate-900 mt-0.5">4.8x ROAS</div>
+              <div className="text-xs md:text-[13px] text-slate-500 font-bold uppercase tracking-wider">Performance Ads</div>
+              <div className="text-[17px] font-extrabold text-slate-900 mt-0.5">4.8x ROAS</div>
             </div>
           </motion.div>
 

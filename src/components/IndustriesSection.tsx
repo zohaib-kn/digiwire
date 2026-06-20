@@ -87,7 +87,7 @@ function IndustryCard({ ind }: { ind: typeof industries[number] }) {
         <Icon className="w-[18px] h-[18px]" style={{ color: INK }} strokeWidth={1.6} />
       </motion.div>
 
-      <h3 className="text-[1.05rem] font-medium mb-1.5" style={{ color: INK, letterSpacing: "-0.01em" }}>
+      <h3 className="text-lg md:text-xl font-medium mb-1.5" style={{ color: INK, letterSpacing: "-0.01em" }}>
         {name}
       </h3>
 
@@ -99,7 +99,7 @@ function IndustryCard({ ind }: { ind: typeof industries[number] }) {
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      <p className="text-[13.5px] leading-relaxed" style={{ color: STONE }}>
+      <p className="text-base leading-relaxed" style={{ color: STONE }}>
         {description}
       </p>
     </motion.div>
@@ -126,7 +126,7 @@ export default function IndustriesSection() {
         >
           <div className="flex items-center gap-2 mb-5">
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: MOSS }} />
-            <span className="text-[12px] tracking-[0.08em] uppercase" style={{ color: STONE }}>
+            <span className="text-sm tracking-[0.08em] uppercase" style={{ color: STONE }}>
               Industries
             </span>
           </div>
@@ -147,7 +147,7 @@ export default function IndustriesSection() {
             deletingSpeed={50}
             cursorBlinkDuration={0.5}
           />
-          <p className="mt-4 text-[15px] leading-relaxed" style={{ color: STONE }}>
+          <p className="mt-4 text-base md:text-lg leading-relaxed" style={{ color: STONE }}>
             DigiWire products are adapted for the specific workflows,
             compliance needs, and data models of each industry.
           </p>

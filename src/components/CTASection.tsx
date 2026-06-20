@@ -74,7 +74,7 @@ export default function CTASection() {
             <span className="absolute inline-flex h-full w-full rounded-full animate-ping" style={{ background: MOSS, opacity: 0.5 }} />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: MOSS }} />
           </span>
-          <span className="text-[12.5px] font-medium" style={{ color: ASH }}>
+          <span className="text-sm md:text-base font-medium" style={{ color: ASH }}>
             Book a free 30-minute strategy call
           </span>
         </motion.div>
@@ -98,7 +98,7 @@ export default function CTASection() {
 
         <motion.p
           variants={itemVariants}
-          className="text-[15.5px] leading-relaxed max-w-xl mx-auto mb-11"
+          className="text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-11"
           style={{ color: ASH }}
         >
           Tell us about your business. We'll map out a custom software
@@ -135,7 +135,7 @@ export default function CTASection() {
         {/* Reassurance */}
         <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-6 mt-12">
           {reassurance.map((item) => (
-            <div key={item} className="flex items-center gap-2 text-[13px]" style={{ color: ASH }}>
+            <div key={item} className="flex items-center gap-2 text-sm md:text-base" style={{ color: ASH }}>
               <span className="w-1 h-1 rounded-full" style={{ background: ASH }} />
               {item}
             </div>

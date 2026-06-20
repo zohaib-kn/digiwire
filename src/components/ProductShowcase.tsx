@@ -46,15 +46,15 @@ function CRMPreview({ active }: { active: boolean }) {
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[11px] font-medium" style={{ color: INK }}>Lead pipeline</span>
-        <span className="text-[10px]" style={{ color: STONE }}>8 active</span>
+        <span className="text-xs md:text-sm font-medium" style={{ color: INK }}>Lead pipeline</span>
+        <span className="text-xs" style={{ color: STONE }}>8 active</span>
       </div>
       {leads.map((lead, i) => (
         <div key={lead.name} className="flex items-center gap-2.5 py-2" style={{ borderTop: i === 0 ? "none" : `1px solid ${HAIRLINE}` }}>
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-1">
-              <span className="text-[11px] font-medium truncate" style={{ color: INK }}>{lead.name}</span>
-              <span className="text-[10px] shrink-0 ml-2" style={{ color: STONE }}>{lead.stage}</span>
+              <span className="text-xs md:text-sm font-medium truncate" style={{ color: INK }}>{lead.name}</span>
+              <span className="text-xs shrink-0 ml-2" style={{ color: STONE }}>{lead.stage}</span>
             </div>
             <div className="w-full h-[2px] rounded-full overflow-hidden" style={{ background: HAIRLINE }}>
               <div
@@ -87,7 +87,7 @@ function AutomationPreview({ active }: { active: boolean }) {
 
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
-      <div className="text-[11px] font-medium mb-3" style={{ color: INK }}>Lead onboarding flow</div>
+      <div className="text-xs md:text-sm font-medium mb-3" style={{ color: INK }}>Lead onboarding flow</div>
       <div className="space-y-2.5">
         {steps.map((step, i) => {
           const lit = active && i < liveStep;
@@ -97,7 +97,7 @@ function AutomationPreview({ active }: { active: boolean }) {
                 className="w-1.5 h-1.5 rounded-full shrink-0"
                 style={{ background: lit ? MOSS : HAIRLINE, transition: "background 0.4s ease" }}
               />
-              <span className="text-[11px]" style={{ color: lit ? INK : STONE, transition: "color 0.4s ease" }}>
+              <span className="text-xs md:text-sm" style={{ color: lit ? INK : STONE, transition: "color 0.4s ease" }}>
                 {step}
               </span>
             </div>
@@ -113,8 +113,8 @@ function AnalyticsPreview({ active }: { active: boolean }) {
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[11px] font-medium" style={{ color: INK }}>Revenue · Q2 2026</span>
-        <span className="text-[10px] font-medium" style={{ color: MOSS }}>+18%</span>
+        <span className="text-xs md:text-sm font-medium" style={{ color: INK }}>Revenue · Q2 2026</span>
+        <span className="text-xs md:text-sm font-medium" style={{ color: MOSS }}>+18%</span>
       </div>
       <div className="flex items-end gap-1.5 h-12 mb-1.5">
         {bars.map((h, i) => (
@@ -131,7 +131,7 @@ function AnalyticsPreview({ active }: { active: boolean }) {
       </div>
       <div className="flex justify-between">
         {["J", "F", "M", "A", "M", "J"].map((m, i) => (
-          <span key={i} className="text-[9px] flex-1 text-center" style={{ color: STONE }}>{m}</span>
+          <span key={i} className="text-[11px] flex-1 text-center" style={{ color: STONE }}>{m}</span>
         ))}
       </div>
     </div>
@@ -146,13 +146,13 @@ function PortalPreview({ active }: { active: boolean }) {
   ];
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
-      <div className="text-[11px] font-medium mb-3" style={{ color: INK }}>Client · Apex Ltd</div>
+      <div className="text-xs md:text-sm font-medium mb-3" style={{ color: INK }}>Client · Apex Ltd</div>
       <div className="space-y-2.5">
         {items.map((item, i) => (
           <div key={item.label}>
             <div className="flex items-center justify-between mb-1">
-              <span className="text-[11px]" style={{ color: INK }}>{item.label}</span>
-              <span className="text-[10px]" style={{ color: STONE }}>{item.status}</span>
+              <span className="text-xs md:text-sm" style={{ color: INK }}>{item.label}</span>
+              <span className="text-xs" style={{ color: STONE }}>{item.status}</span>
             </div>
             <div className="w-full h-[2px] rounded-full overflow-hidden" style={{ background: HAIRLINE }}>
               <div
@@ -257,21 +257,21 @@ function ProductCard({
         >
           <Icon className="w-[18px] h-[18px]" style={{ color: INK }} strokeWidth={1.6} />
         </div>
-        <span className="text-[12px] tabular-nums" style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}>
+        <span className="text-sm tabular-nums" style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}>
           {tag}
         </span>
       </div>
 
-      <h3 className="text-[1.15rem] font-medium mb-2" style={{ color: INK, letterSpacing: "-0.01em" }}>
+      <h3 className="text-xl md:text-2xl font-medium mb-2" style={{ color: INK, letterSpacing: "-0.01em" }}>
         {name}
       </h3>
-      <p className="text-[14px] leading-relaxed mb-5" style={{ color: STONE }}>
+      <p className="text-base leading-relaxed mb-5" style={{ color: STONE }}>
         {description}
       </p>
 
       <ul className="space-y-2 mb-6">
         {features.map((f) => (
-          <li key={f} className="flex items-baseline gap-2.5 text-[13.5px]" style={{ color: "#4A4844" }}>
+          <li key={f} className="flex items-baseline gap-2.5 text-[15px]" style={{ color: "#4A4844" }}>
             <span className="w-1 h-1 rounded-full shrink-0 relative top-[-1px]" style={{ background: MOSS }} />
             {f}
           </li>
@@ -284,7 +284,7 @@ function ProductCard({
 
       <Link
         href="/contact"
-        className="product-link inline-flex items-center gap-1.5 text-[13.5px] font-medium pb-0.5"
+        className="product-link inline-flex items-center gap-1.5 text-[15px] font-medium pb-0.5"
         style={{ color: INK, borderBottom: "1px solid transparent" }}
       >
         View product
@@ -339,7 +339,7 @@ export default function ProductShowcase() {
         <div ref={headerRef} className="mb-20 max-w-xl">
           <div className={`fade-up flex items-center gap-2 mb-5 ${headerInView ? "in-view" : ""}`}>
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: MOSS }} />
-            <span className="text-[12px] tracking-[0.08em] uppercase" style={{ color: STONE }}>
+            <span className="text-sm tracking-[0.08em] uppercase" style={{ color: STONE }}>
               The suite
             </span>
           </div>
@@ -362,7 +362,7 @@ export default function ProductShowcase() {
             cursorBlinkDuration={0.5}
           />
           <p
-            className={`fade-up mt-4 text-[15px] leading-relaxed ${headerInView ? "in-view" : ""}`}
+            className={`fade-up mt-4 text-base md:text-lg leading-relaxed ${headerInView ? "in-view" : ""}`}
             style={{ color: STONE, transitionDelay: "0.14s" }}
           >
             Every product in the DigiWire suite solves a real operational

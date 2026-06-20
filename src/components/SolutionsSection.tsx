@@ -82,7 +82,7 @@ function SolutionRow({ s, index }: { s: typeof solutions[number]; index: number 
     >
       {/* Index number */}
       <motion.span
-        className="hidden sm:block text-[13px] tabular-nums pt-0.5"
+        className="hidden sm:block text-sm md:text-base tabular-nums pt-0.5"
         style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}
         variants={{ hover: { color: MOSS } }}
         transition={{ duration: 0.25 }}
@@ -109,10 +109,10 @@ function SolutionRow({ s, index }: { s: typeof solutions[number]; index: number 
           initial="hidden"
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         />
-        <h3 className="text-[1.05rem] font-medium mb-1.5" style={{ color: INK, letterSpacing: "-0.01em" }}>
+        <h3 className="text-lg md:text-xl font-medium mb-1.5" style={{ color: INK, letterSpacing: "-0.01em" }}>
           {name}
         </h3>
-        <p className="text-[14px] leading-relaxed max-w-lg" style={{ color: STONE }}>
+        <p className="text-base leading-relaxed max-w-lg" style={{ color: STONE }}>
           {description}
         </p>
       </div>
@@ -140,7 +140,7 @@ export default function SolutionsSection() {
         >
           <div className="flex items-center gap-2 mb-5">
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: MOSS }} />
-            <span className="text-[12px] tracking-[0.08em] uppercase" style={{ color: STONE }}>
+            <span className="text-sm tracking-[0.08em] uppercase" style={{ color: STONE }}>
               Solutions
             </span>
           </div>
@@ -161,7 +161,7 @@ export default function SolutionsSection() {
             deletingSpeed={50}
             cursorBlinkDuration={0.5}
           />
-          <p className="mt-4 text-[15px] leading-relaxed" style={{ color: STONE }}>
+          <p className="mt-4 text-base md:text-lg leading-relaxed" style={{ color: STONE }}>
             Whether you're running a sales team or managing internal
             operations, DigiWire has a solution designed around your workflow.
           </p>

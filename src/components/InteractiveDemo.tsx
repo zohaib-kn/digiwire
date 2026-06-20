@@ -32,8 +32,8 @@ function CRMDemo() {
   return (
     <div className="flex flex-col gap-5 h-full">
       <div className="flex items-center justify-between">
-        <span className="text-[13px] font-medium" style={{ color: INK }}>Pipeline overview</span>
-        <span className="flex items-center gap-1.5 text-[11px]" style={{ color: MOSS }}>
+        <span className="text-[14.5px] font-medium" style={{ color: INK }}>Pipeline overview</span>
+        <span className="flex items-center gap-1.5 text-xs md:text-sm" style={{ color: MOSS }}>
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: MOSS }} />
           Live
         </span>
@@ -42,13 +42,13 @@ function CRMDemo() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
         {columns.map((col, ci) => (
           <div key={col.stage}>
-            <div className="text-[10px] uppercase tracking-wide mb-2.5" style={{ color: STONE }}>
+            <div className="text-xs uppercase tracking-wide mb-2.5" style={{ color: STONE }}>
               {col.stage} ({col.count})
             </div>
             <div className="space-y-2">
               {col.leads.map((lead, li) => (
                 <div key={lead.name} className="pb-2" style={{ borderBottom: `1px solid ${HAIRLINE}` }}>
-                  <div className="text-[11.5px] font-medium mb-1" style={{ color: INK }}>{lead.name}</div>
+                  <div className="text-xs md:text-sm font-medium mb-1" style={{ color: INK }}>{lead.name}</div>
                   <div className="h-[2px] rounded-full overflow-hidden" style={{ background: HAIRLINE }}>
                     <motion.div
                       className="h-full rounded-full"
@@ -68,8 +68,8 @@ function CRMDemo() {
       <div className="grid grid-cols-3 gap-3 pt-3" style={{ borderTop: `1px solid ${HAIRLINE}` }}>
         {stats.map((s) => (
           <div key={s.label}>
-            <div className="text-[15px] font-medium" style={{ color: INK }}>{s.value}</div>
-            <div className="text-[10.5px] mt-0.5" style={{ color: STONE }}>{s.label}</div>
+            <div className="text-[17px] font-medium" style={{ color: INK }}>{s.value}</div>
+            <div className="text-xs mt-0.5" style={{ color: STONE }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -91,8 +91,8 @@ function AutomationDemo() {
   return (
     <div className="flex flex-col gap-5 h-full">
       <div className="flex items-center justify-between">
-        <span className="text-[13px] font-medium" style={{ color: INK }}>Lead onboarding flow</span>
-        <span className="text-[11px]" style={{ color: STONE }}>Last run: 2 min ago</span>
+        <span className="text-[14.5px] font-medium" style={{ color: INK }}>Lead onboarding flow</span>
+        <span className="text-xs md:text-sm" style={{ color: STONE }}>Last run: 2 min ago</span>
       </div>
 
       <div className="flex-1 space-y-3.5">
@@ -104,11 +104,11 @@ function AutomationDemo() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-[13px] w-5 text-center shrink-0">{step.icon}</span>
+            <span className="text-[14.5px] w-5 text-center shrink-0">{step.icon}</span>
             <div className="flex-1 min-w-0">
-              <div className="text-[12.5px] font-medium truncate" style={{ color: INK }}>{step.label}</div>
+              <div className="text-[14px] font-medium truncate" style={{ color: INK }}>{step.label}</div>
             </div>
-            <span className="text-[10.5px] shrink-0" style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}>
+            <span className="text-xs shrink-0" style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}>
               {step.time}
             </span>
             <motion.span
@@ -139,10 +139,10 @@ function AnalyticsDemo() {
   return (
     <div className="flex flex-col gap-5 h-full">
       <div className="flex items-center justify-between">
-        <span className="text-[13px] font-medium" style={{ color: INK }}>Annual revenue</span>
+        <span className="text-[14.5px] font-medium" style={{ color: INK }}>Annual revenue</span>
         <div className="flex items-baseline gap-2">
-          <span className="text-[17px] font-medium" style={{ color: INK }}>$148K</span>
-          <span className="text-[11px]" style={{ color: MOSS }}>↑ 252%</span>
+          <span className="text-lg md:text-xl font-medium" style={{ color: INK }}>$148K</span>
+          <span className="text-xs md:text-sm" style={{ color: MOSS }}>↑ 252%</span>
         </div>
       </div>
 
@@ -161,15 +161,15 @@ function AnalyticsDemo() {
       </div>
       <div className="flex justify-between -mt-2">
         {months.map((m, i) => (
-          <span key={i} className="text-[9px] flex-1 text-center" style={{ color: STONE }}>{m}</span>
+          <span key={i} className="text-[11px] flex-1 text-center" style={{ color: STONE }}>{m}</span>
         ))}
       </div>
 
       <div className="grid grid-cols-3 gap-3 pt-3" style={{ borderTop: `1px solid ${HAIRLINE}` }}>
         {stats.map((s) => (
           <div key={s.label}>
-            <div className="text-[15px] font-medium" style={{ color: INK }}>{s.value}</div>
-            <div className="text-[10.5px] mt-0.5" style={{ color: STONE }}>{s.label}</div>
+            <div className="text-[17px] font-medium" style={{ color: INK }}>{s.value}</div>
+            <div className="text-xs mt-0.5" style={{ color: STONE }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -190,8 +190,8 @@ function PortalDemo() {
     <div className="flex flex-col gap-5 h-full">
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-[13px] font-medium" style={{ color: INK }}>Client · Apex Financial</span>
-          <div className="text-[11px] mt-0.5" style={{ color: STONE }}>3 active projects</div>
+          <span className="text-[14.5px] font-medium" style={{ color: INK }}>Client · Apex Financial</span>
+          <div className="text-xs md:text-sm mt-0.5" style={{ color: STONE }}>3 active projects</div>
         </div>
       </div>
 
@@ -199,8 +199,8 @@ function PortalDemo() {
         {projects.map((p, i) => (
           <div key={p.name}>
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[12.5px] font-medium" style={{ color: INK }}>{p.name}</span>
-              <span className="text-[10.5px]" style={{ color: STONE }}>{p.status}</span>
+              <span className="text-[14px] font-medium" style={{ color: INK }}>{p.name}</span>
+              <span className="text-xs" style={{ color: STONE }}>{p.status}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="flex-1 h-[3px] rounded-full overflow-hidden" style={{ background: HAIRLINE }}>
@@ -212,7 +212,7 @@ function PortalDemo() {
                   transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 />
               </div>
-              <span className="text-[11px] font-medium shrink-0" style={{ color: STONE }}>{p.progress}%</span>
+              <span className="text-xs md:text-sm font-medium shrink-0" style={{ color: STONE }}>{p.progress}%</span>
             </div>
           </div>
         ))}
@@ -220,12 +220,12 @@ function PortalDemo() {
 
       <div className="grid grid-cols-2 gap-3 pt-3" style={{ borderTop: `1px solid ${HAIRLINE}` }}>
         <div>
-          <div className="text-[15px] font-medium" style={{ color: INK }}>$18,400</div>
-          <div className="text-[10.5px] mt-0.5" style={{ color: STONE }}>Invoiced · Q2</div>
+          <div className="text-[17px] font-medium" style={{ color: INK }}>$18,400</div>
+          <div className="text-xs mt-0.5" style={{ color: STONE }}>Invoiced · Q2</div>
         </div>
         <div>
-          <div className="text-[15px] font-medium" style={{ color: MOSS }}>$16,200</div>
-          <div className="text-[10.5px] mt-0.5" style={{ color: STONE }}>Paid · Q2</div>
+          <div className="text-[17px] font-medium" style={{ color: MOSS }}>$16,200</div>
+          <div className="text-xs mt-0.5" style={{ color: STONE }}>Paid · Q2</div>
         </div>
       </div>
     </div>
@@ -334,7 +334,7 @@ export default function InteractiveDemo() {
         >
           <div className="flex items-center gap-2 mb-5">
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: MOSS }} />
-            <span className="text-[12px] tracking-[0.08em] uppercase" style={{ color: STONE }}>
+            <span className="text-sm tracking-[0.08em] uppercase" style={{ color: STONE }}>
               Interactive demo
             </span>
           </div>
@@ -350,7 +350,7 @@ export default function InteractiveDemo() {
             deletingSpeed={50}
             cursorBlinkDuration={0.5}
           />
-          <p className="mt-4 text-[15px] leading-relaxed" style={{ color: STONE }}>
+          <p className="mt-4 text-base md:text-lg leading-relaxed" style={{ color: STONE }}>
             Explore each product with a live preview — no sign-up needed.
           </p>
         </motion.div>
@@ -362,7 +362,7 @@ export default function InteractiveDemo() {
               <button
                 key={t.id}
                 onClick={() => setActiveTab(i)}
-                className="relative px-4 py-2 text-[13.5px] font-medium rounded-full shrink-0 transition-colors"
+                className="relative px-4 py-2 text-[15px] md:text-base font-medium rounded-full shrink-0 transition-colors"
                 style={{ color: activeTab === i ? PAPER : STONE }}
               >
                 {activeTab === i && (
@@ -394,18 +394,18 @@ export default function InteractiveDemo() {
               <motion.h3
                 variants={itemVariants}
                 className="font-medium tracking-tight"
-                style={{ color: INK, fontSize: "1.7rem", lineHeight: 1.25, letterSpacing: "-0.01em" }}
+                style={{ color: INK, fontSize: "clamp(1.6rem, 3.2vw, 2.2rem)", lineHeight: 1.25, letterSpacing: "-0.01em" }}
               >
                 {tab.heading}
               </motion.h3>
-              <motion.p variants={itemVariants} className="text-[15px] leading-relaxed" style={{ color: STONE }}>
+              <motion.p variants={itemVariants} className="text-base md:text-lg leading-relaxed" style={{ color: STONE }}>
                 {tab.description}
               </motion.p>
               <motion.ul variants={itemVariants} className="space-y-3">
                 {tab.features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <CheckCircle2 className="w-[18px] h-[18px] mt-0.5 shrink-0" style={{ color: MOSS }} strokeWidth={1.8} />
-                    <span className="text-[14px]" style={{ color: "#3A3835" }}>{f}</span>
+                    <span className="text-[15.5px]" style={{ color: "#3A3835" }}>{f}</span>
                   </li>
                 ))}
               </motion.ul>

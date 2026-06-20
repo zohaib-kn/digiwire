@@ -92,7 +92,7 @@ function PlatformDiagram() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-[13px] font-medium"
+          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-medium"
           style={{ background: INK, color: PAPER }}
         >
           <span className="relative flex h-1.5 w-1.5">
@@ -121,12 +121,12 @@ function PlatformDiagram() {
             }}
           >
             <div className="flex items-center justify-between mb-1">
-              <span className="text-[12.5px] font-medium" style={{ color: INK }}>{layer.label}</span>
-              <span className="text-[10px] tabular-nums" style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}>
+              <span className="text-sm font-medium" style={{ color: INK }}>{layer.label}</span>
+              <span className="text-xs tabular-nums" style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
-            <div className="text-[11px]" style={{ color: STONE }}>{layer.desc}</div>
+            <div className="text-[12.5px] md:text-[13.5px]" style={{ color: STONE }}>{layer.desc}</div>
           </motion.div>
         ))}
       </div>
@@ -140,7 +140,7 @@ function PlatformDiagram() {
         className="mt-7 pt-6"
         style={{ borderTop: `1px solid ${HAIRLINE}` }}
       >
-        <div className="text-[11px] tracking-[0.08em] uppercase text-center mb-4" style={{ color: STONE }}>
+        <div className="text-xs md:text-sm tracking-[0.08em] uppercase text-center mb-4" style={{ color: STONE }}>
           Runs on top of your existing stack
         </div>
         <div className="grid grid-cols-4 gap-2">
@@ -154,7 +154,7 @@ function PlatformDiagram() {
               className="text-center py-2 px-1 rounded-lg"
               style={{ border: `1px solid ${HAIRLINE}` }}
             >
-              <span className="text-[9.5px] font-medium" style={{ color: "#4A4844" }}>{tool}</span>
+              <span className="text-[11px] font-medium" style={{ color: "#4A4844" }}>{tool}</span>
             </motion.div>
           ))}
         </div>
@@ -171,7 +171,7 @@ function PlatformDiagram() {
         {trustBadges.map((label) => (
           <div key={label} className="flex items-center gap-1.5">
             <span className="w-1 h-1 rounded-full" style={{ background: MOSS }} />
-            <span className="text-[10.5px]" style={{ color: STONE }}>{label}</span>
+            <span className="text-xs md:text-sm" style={{ color: STONE }}>{label}</span>
           </div>
         ))}
       </motion.div>
@@ -204,7 +204,7 @@ export default function WhyDigiWire() {
               className="flex items-center gap-2 mb-6"
             >
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: MOSS }} />
-              <span className="text-[12px] tracking-[0.08em] uppercase" style={{ color: STONE }}>
+              <span className="text-sm tracking-[0.08em] uppercase" style={{ color: STONE }}>
                 About
               </span>
             </motion.div>
@@ -227,7 +227,7 @@ export default function WhyDigiWire() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[15px] leading-relaxed mb-10"
+              className="text-base md:text-lg leading-relaxed mb-10"
               style={{ color: STONE }}
             >
               DigiWire Smart Solutions is a technology-driven digital marketing agency specializing in performance marketing, search engine optimization, branding, website development, and marketing automation. We help businesses leverage data and consumer insights to improve online visibility, capture high-quality leads, and maximize return on marketing investments. By combining strategic planning with creative execution and continuous optimization, we build digital ecosystems that support sustainable growth.
@@ -249,10 +249,10 @@ export default function WhyDigiWire() {
                     <d.Icon className="w-4 h-4" style={{ color: INK }} strokeWidth={1.6} />
                   </div>
                   <div>
-                    <div className="text-[14.5px] font-medium mb-1" style={{ color: INK }}>
+                    <div className="text-base md:text-lg font-medium mb-1" style={{ color: INK }}>
                       {d.title}
                     </div>
-                    <div className="text-[13.5px] leading-relaxed" style={{ color: STONE }}>
+                    <div className="text-base leading-relaxed" style={{ color: STONE }}>
                       {d.description}
                     </div>
                   </div>

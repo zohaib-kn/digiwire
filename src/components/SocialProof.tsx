@@ -121,7 +121,7 @@ export default function SocialProof() {
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                 className="h-[2.5px] bg-indigo-500/70 rounded-full mt-3 mb-2.5"
               />
-              <div className="text-sm text-slate-600">{m.label}</div>
+              <div className="text-base text-slate-600">{m.label}</div>
             </motion.div>
           ))}
         </div>
@@ -130,7 +130,7 @@ export default function SocialProof() {
       {/* Logo wall – animated marquee */}
       <div className="border-t border-slate-100 bg-slate-50/60">
         <div className="py-8 md:py-10">
-          <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-7">
+          <p className="text-center text-sm font-semibold text-slate-500 uppercase tracking-widest mb-7">
             Technologies we work with
           </p>
           <div style={{ height: '80px', position: 'relative', overflow: 'hidden' }}>
