@@ -51,12 +51,12 @@ const values = [
 
 const teamMembers: Array<{ name: string, role: string, image?: string }> = [
   { name: "Zohaib", role: "Front-end Developer", image: "/img/ZOHAIB.png" },
-  { name: "Fardeen", role: "Creative Lead", image: "/img/FARDEEN SIR.png" },
-  { name: "Muneer", role: "Project Lead", image: "/img/MUNEER SIR.png" },
+  { name: "Fardeen", role: "Creative Lead", image: "/img/FARDEEN SIRc.png" },
+  { name: "Muneer", role: "Project Lead", image: "/img/MUNEER SIRc.png" },
+  { name: "Pranshu", role: "Backend Developer", image: "/img/PRANSHU SIR.png" },
+  { name: "Prerna", role: "UX Designer", image: "/img/PRERNA.png" },
+  { name: "Sumaiya", role: "Marketing Lead", image: "/img/SUMAIYA MAM.png" },
   { name: "Automation Expert", role: "AI Workflows" },
-  { name: "Marketing Lead", role: "Growth Strategy" },
-  { name: "UX Designer", role: "User Experience" },
-  { name: "Backend Developer", role: "System Architecture" },
   { name: "Data Scientist", role: "Data Analytics" },
   { name: "DevOps Engineer", role: "Infrastructure" },
   { name: "Product Manager", role: "Product Strategy" },

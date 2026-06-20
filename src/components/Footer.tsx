@@ -42,7 +42,7 @@ export default function Footer() {
                 className="h-45 w-auto object-contain"
               />
             </a>
-            <p className="text-sm text-slate-600 leading-relaxed mb-5 max-w-[200px]">
+            <p className="text-base text-slate-600 leading-relaxed mb-5 max-w-[250px]">
               AI-powered software and SaaS products for modern businesses.
             </p>
             <div className="flex items-center gap-2">
@@ -62,21 +62,21 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <div className="text-xs font-semibold text-slate-900 uppercase tracking-widest mb-4">
+              <div className="text-sm font-semibold text-slate-900 uppercase tracking-widest mb-4">
                 {category}
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
                     <a
                       href="#"
-                      className="group inline-flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                      className="group inline-flex items-center gap-1 text-[15px] text-slate-600 hover:text-slate-900 transition-colors"
                     >
                       <span className="relative">
                         {link}
                         <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-slate-900 group-hover:w-full transition-all duration-200" />
                       </span>
-                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-200" />
+                      <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-200" />
                     </a>
                   </li>
                 ))}
@@ -89,7 +89,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="text-sm text-slate-500">
+          <div className="text-[15px] text-slate-500">
             &copy; 2026 DigiWire Solutions. All rights reserved.
           </div>
           <div className="flex items-center gap-2">
@@ -97,7 +97,7 @@ export default function Footer() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
               <span className="relative inline-flex w-1.5 h-1.5 rounded-full bg-emerald-500" />
             </span>
-            <span className="text-xs text-slate-500">
+            <span className="text-sm text-slate-500">
               All systems operational
             </span>
           </div>
