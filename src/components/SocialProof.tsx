@@ -97,7 +97,7 @@ export default function SocialProof() {
       className="bg-white border-b border-slate-200/60"
     >
       {/* Metrics row */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0 md:divide-x md:divide-slate-100">
           {metrics.map((m, i) => (
             <motion.div
@@ -129,7 +129,7 @@ export default function SocialProof() {
 
       {/* Logo wall – animated marquee */}
       <div className="border-t border-slate-100 bg-slate-50/60">
-        <div className="py-8">
+        <div className="py-8 md:py-10">
           <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-7">
             Technologies we work with
           </p>

@@ -302,7 +302,7 @@ export default function ProductShowcase() {
   return (
     <section
       id="products"
-      className="relative py-28"
+      className="relative py-20 md:py-28 lg:py-32"
       style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}
     >
       <style>{`
@@ -334,7 +334,7 @@ export default function ProductShowcase() {
         }
       `}</style>
 
-      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* Header */}
         <div ref={headerRef} className="mb-20 max-w-xl">
           <div className={`fade-up flex items-center gap-2 mb-5 ${headerInView ? "in-view" : ""}`}>

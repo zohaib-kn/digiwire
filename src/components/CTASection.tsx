@@ -31,7 +31,7 @@ export default function CTASection() {
   return (
     <section
       id="contact"
-      className="relative py-32 overflow-hidden"
+      className="relative py-24 md:py-32 lg:py-36 overflow-hidden"
       style={{ background: VOID, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}
     >
       <style>{`
@@ -58,7 +58,7 @@ export default function CTASection() {
       />
 
       <motion.div
-        className="relative max-w-3xl mx-auto px-6 sm:px-8 text-center"
+        className="relative max-w-4xl mx-auto px-6 sm:px-8 text-center"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

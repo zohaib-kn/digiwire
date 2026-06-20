@@ -75,7 +75,7 @@ function IndustryCard({ ind }: { ind: typeof industries[number] }) {
     <motion.div
       variants={cardVariants}
       whileHover="hover"
-      className="group relative p-7 cursor-default"
+      className="group relative p-7 md:p-9 cursor-default"
       style={{ borderTop: `1px solid ${HAIRLINE}` }}
     >
       <motion.div
@@ -110,7 +110,7 @@ export default function IndustriesSection() {
   return (
     <section
       id="industries"
-      className="py-28"
+      className="py-20 md:py-28 lg:py-32"
       style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}
     >
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');`}</style>

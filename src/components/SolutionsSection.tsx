@@ -77,7 +77,7 @@ function SolutionRow({ s, index }: { s: typeof solutions[number]; index: number 
     <motion.div
       variants={rowVariants}
       whileHover="hover"
-      className="group relative grid grid-cols-[auto_1fr] sm:grid-cols-[5rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-8 cursor-default"
+      className="group relative grid grid-cols-[auto_1fr] sm:grid-cols-[5rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-8 md:py-10 cursor-default"
       style={{ borderTop: `1px solid ${HAIRLINE}` }}
     >
       {/* Index number */}
@@ -124,7 +124,7 @@ export default function SolutionsSection() {
   return (
     <section
       id="solutions"
-      className="py-28"
+      className="py-20 md:py-28 lg:py-32"
       style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}
     >
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');`}</style>

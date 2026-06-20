@@ -22,31 +22,31 @@ const differentiators = [
     Icon: Lightbulb,
     title: "Product thinking, not just development",
     description:
-      "We don't just build features — we design software systems around your actual business goals, user journeys, and growth model.",
+      "We design digital products around your actual business goals, user journeys, and growth model.",
   },
   {
     Icon: BrainCircuit,
     title: "AI-first workflows",
     description:
-      "Every product we build has AI baked in from day one — not bolted on. Scoring, drafting, routing, and insight generation are native.",
+      "Every product has native AI capabilities baked in from day one — not bolted on later.",
   },
   {
     Icon: Layers,
     title: "Scalable architecture",
     description:
-      "Built to grow with you. Our platforms handle 10 users or 10,000 with the same performance, security, and reliability.",
+      "Built to grow. Our systems handle high volume with the same performance, security, and reliability.",
   },
   {
     Icon: LayoutGrid,
-    title: "Clean, intuitive dashboards",
+    title: "Clean, intuitive UI/UX",
     description:
-      "We obsess over UI clarity. Your team will adopt and love the tools we build — not tolerate them.",
+      "We prioritize interface clarity, ensuring your team adopts and loves using the systems we build.",
   },
   {
     Icon: Target,
     title: "Business outcome focus",
     description:
-      "We measure success by your outcomes — reduced churn, faster close rates, fewer manual hours — not by lines of code shipped.",
+      "We measure success by your actual business results — reduced costs, higher close rates, and fewer manual hours.",
   },
 ];
 
@@ -183,7 +183,7 @@ function PlatformDiagram() {
 
 export default function WhyDigiWire() {
   return (
-    <section className="py-28" style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}>
+    <section className="py-20 md:py-28 lg:py-32" style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
         @keyframes ping {
@@ -230,13 +230,7 @@ export default function WhyDigiWire() {
               className="text-[15px] leading-relaxed mb-10"
               style={{ color: STONE }}
             >
-              DigiWire Smart Solutions is a technology-driven digital marketing agency specializing in performance marketing, search engine optimization, social media management, branding, website development, and marketing automation.
-              <br /><br />
-              We help businesses leverage data, consumer insights, and digital technologies to improve online visibility, acquire high-quality leads, increase customer engagement, and maximize return on marketing investments.
-              <br /><br />
-              Our approach combines strategic planning, creative execution, analytics, and continuous optimization to ensure every campaign contributes to measurable business objectives. From building conversion-focused websites and executing targeted advertising campaigns to implementing SEO strategies and automated customer journeys, we create digital ecosystems that support sustainable business growth.
-              <br /><br />
-              With experience across multiple industries and markets, DigiWire serves as a strategic digital partner for organizations seeking scalable, result-oriented marketing solutions in an increasingly competitive digital landscape.
+              DigiWire Smart Solutions is a technology-driven digital marketing agency specializing in performance marketing, search engine optimization, branding, website development, and marketing automation. We help businesses leverage data and consumer insights to improve online visibility, capture high-quality leads, and maximize return on marketing investments. By combining strategic planning with creative execution and continuous optimization, we build digital ecosystems that support sustainable growth.
             </motion.p>
 
             <motion.div
