@@ -12,7 +12,6 @@ import {
   Wand2,
   Share2,
 } from 'lucide-react';
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 
 export default function VideoCreationPage() {

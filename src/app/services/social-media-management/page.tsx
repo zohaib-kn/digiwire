@@ -13,7 +13,6 @@ import {
   MessageSquare,
   Send,
 } from 'lucide-react';
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 
 export default function SocialMediaManagementPage() {
@@ -150,9 +149,9 @@ export default function SocialMediaManagementPage() {
                 </div>
 
                 {/* Closing statement, anchored beneath the feed card */}
-                <p className="mt-9 text-[#DB2777] text-[14px] sm:text-[15px] font-medium leading-relaxed text-center max-w-[300px] mx-auto">
+                {/* <p className="mt-9 text-[#DB2777] text-[14px] sm:text-[15px] font-medium leading-relaxed text-center max-w-[300px] mx-auto">
                   Social media is no longer just a marketing channel &mdash; it&apos;s where customers discover, evaluate, and connect with brands.
-                </p>
+                </p> */}
               </motion.div>
             </div>
 
