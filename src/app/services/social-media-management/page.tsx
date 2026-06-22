@@ -28,7 +28,7 @@ export default function SocialMediaManagementPage() {
   ];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#F7F8FA] text-[#0B1120]">
+    <main className="relative min-h-screen overflow-x-hidden bg-[#F7F8FA] text-[#0B1120]">
       <Navbar />
       <div className="relative z-10 flex flex-col">
         {/* Background accent — single restrained source */}
@@ -38,13 +38,11 @@ export default function SocialMediaManagementPage() {
         />
 
         {/* Main Container */}
-        <section className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 pt-[80px] pb-24 flex flex-col">
+        <section className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 pt-24 md:pt-32 pb-24 flex flex-col">
 
-          
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start lg:items-center">
 
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-            {/* Left Column: Heading, Content & Capability Grid */}
+            {/* Left Column: Heading & Content */}
             <div className="lg:col-span-7 flex flex-col">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -68,7 +66,7 @@ export default function SocialMediaManagementPage() {
                 </h2>
 
                 {/* Content Paragraphs */}
-                <div className="space-y-6 text-[15px] sm:text-[16px] text-[#475569] leading-relaxed font-normal mb-10">
+                <div className="space-y-6 text-[15px] sm:text-[16px] text-[#475569] leading-relaxed font-normal">
                   <p>
                     At DigiWire, we help businesses build a consistent and engaging social media presence that strengthens brand credibility, increases customer engagement, and keeps your business visible where conversations happen.
                   </p>
@@ -80,36 +78,10 @@ export default function SocialMediaManagementPage() {
                   </p>
                 </div>
               </motion.div>
-
-              {/* Capability Grid — replaces the generic checklist */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                <h3 className="text-[11px] font-bold text-[#94A3B8] tracking-[0.2em] uppercase mb-4">
-                  What we manage
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {highlights.map(({ label, icon: Icon }, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-3 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3.5 hover:border-[#DB2777]/30 transition-colors duration-300"
-                    >
-                      <div className="shrink-0 w-8 h-8 rounded-lg bg-[#DB2777]/[0.08] flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-[#DB2777]" />
-                      </div>
-                      <span className="text-[13.5px] font-medium text-[#0B1120] leading-snug">
-                        {label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
             </div>
 
             {/* Right Column: Feed card stack signature element */}
-            <div className="lg:col-span-5 w-full flex justify-center lg:pt-2">
+            <div className="lg:col-span-5 w-full flex flex-col items-center justify-center lg:pt-2 lg:sticky lg:top-[120px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -185,6 +157,35 @@ export default function SocialMediaManagementPage() {
             </div>
 
           </div>
+
+          {/* Capability Grid Section — full width bottom section */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-14 md:mt-20 pt-10 md:pt-12 border-t border-[#E2E8F0]"
+          >
+            <h3 className="text-[11px] font-bold text-[#94A3B8] tracking-[0.2em] uppercase mb-6 text-center sm:text-left">
+              What we manage
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {highlights.map(({ label, icon: Icon }, i) => (
+                <div
+                  key={i}
+                  className={`h-full min-h-[92px] flex items-center gap-4 rounded-2xl border border-[#E2E8F0] bg-white px-5 py-4 hover:border-[#DB2777]/30 hover:shadow-sm transition-all duration-300 ${
+                    i === 6 ? 'sm:col-span-2 lg:col-span-3' : ''
+                  }`}
+                >
+                  <div className="shrink-0 w-10 h-10 rounded-xl bg-[#DB2777]/[0.08] flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#DB2777]" />
+                  </div>
+                  <span className="text-[14px] sm:text-[15px] font-semibold text-[#0B1120] leading-snug">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </section>
 
         {/* Footer copyright */}

@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 
 export default function SEOOptimizationPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#F7F8FA] text-[#0B1120]">
+    <main className="relative min-h-screen overflow-x-hidden bg-[#F7F8FA] text-[#0B1120]">
       <Navbar />
       <div className="relative z-10 flex flex-col">
         {/* Background accents — restrained, single source of color */}
@@ -18,14 +18,12 @@ export default function SEOOptimizationPage() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,17,32,0.02)_0%,transparent_8%)] pointer-events-none z-0" />
 
         {/* Main Container */}
-        <section className="relative z-10 max-w-[1600px] mx-auto w-full px-6 sm:px-10 md:px-16 lg:px-20 pt-[80px] pb-24 flex flex-col">
+        <section className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 pt-24 md:pt-32 pb-24 flex flex-col">
 
-          
-
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start lg:items-center">
 
             {/* Left Column: Heading & Content */}
-            <div className="lg:col-span-6 flex flex-col">
+            <div className="lg:col-span-7 flex flex-col">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -82,7 +80,7 @@ export default function SEOOptimizationPage() {
             </div>
 
             {/* Right Column: SERP signature element */}
-            <div className="lg:col-span-6 w-full flex justify-center lg:pt-2">
+            <div className="lg:col-span-5 w-full flex flex-col items-center justify-center lg:pt-2 lg:sticky lg:top-[120px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}

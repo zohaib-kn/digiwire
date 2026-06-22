@@ -227,14 +227,17 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-slate-500" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Contact Information</div>
-                    <p className="text-base font-semibold text-[#0F172A]">DigiWire</p>
-                    <a href="mailto:info@digi-wire.com" className="text-sm font-medium text-slate-500 hover:text-cyan-600 block mt-1">
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Corporate Office</div>
+                    <p className="text-base font-semibold text-[#0F172A] mb-1">DigiWire</p>
+                    <p className="text-sm text-slate-600 leading-relaxed max-w-[280px] mb-2">
+                      GTB COMPLEX, New Market, North TT Nagar, TT Nagar, Bhopal, Madhya Pradesh 462003
+                    </p>
+                    {/* <a href="mailto:info@digi-wire.com" className="text-sm font-medium text-slate-500 hover:text-cyan-600 block">
                       info@digi-wire.com
-                    </a>
-                    <a href="https://digi-wire.com" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-cyan-600 hover:underline block mt-0.5">
+                    </a> */}
+                    {/* <a href="https://digi-wire.com" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-cyan-600 hover:underline block mt-0.5">
                       https://digi-wire.com
-                    </a>
+                    </a> */}
                     <p className="text-xs text-[#475569] mt-2">
                       Operating Schedule: Mon–Sat, 10 AM – 6 PM IST
                     </p>

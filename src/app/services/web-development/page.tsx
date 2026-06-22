@@ -11,7 +11,6 @@ import {
   Search,
   Code2,
 } from 'lucide-react';
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 
 export default function WebDevelopmentPage() {
@@ -27,7 +26,7 @@ export default function WebDevelopmentPage() {
   ];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#F7F8FA] text-[#0B1120]">
+    <main className="relative min-h-screen overflow-x-hidden bg-[#F7F8FA] text-[#0B1120]">
       <Navbar />
       <div className="relative z-10 flex flex-col">
         {/* Background accent — single restrained source */}
@@ -37,14 +36,12 @@ export default function WebDevelopmentPage() {
         />
 
         {/* Main Container */}
-        <section className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 pt-[80px] pb-24 flex flex-col">
+        <section className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 pt-24 md:pt-32 pb-24 flex flex-col">
 
-          
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start lg:items-center">
 
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-            {/* Left Column: Heading, Content & Capability Grid */}
-            <div className="lg:col-span-6 flex flex-col">
+            {/* Left Column: Heading & Content */}
+            <div className="lg:col-span-7 flex flex-col">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -67,7 +64,7 @@ export default function WebDevelopmentPage() {
                 </h2>
 
                 {/* Content Paragraphs */}
-                <div className="space-y-6 text-[15px] sm:text-[16px] text-[#475569] leading-relaxed font-normal mb-10">
+                <div className="space-y-6 text-[15px] sm:text-[16px] text-[#475569] leading-relaxed font-normal">
                   <p>
                     At DigiWire, we create websites that combine functionality, user experience, and performance. Whether it&apos;s a corporate website, e-commerce platform, portfolio, or landing page, every website is built to engage visitors, strengthen credibility, and encourage action.
                   </p>
@@ -76,36 +73,10 @@ export default function WebDevelopmentPage() {
                   </p>
                 </div>
               </motion.div>
-
-              {/* Capability Grid — replaces the generic checklist */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                <h3 className="text-[11px] font-bold text-[#94A3B8] tracking-[0.2em] uppercase mb-4">
-                  What we build
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {highlights.map(({ label, icon: Icon }, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-3 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3.5 hover:border-[#4F46E5]/30 transition-colors duration-300"
-                    >
-                      <div className="shrink-0 w-8 h-8 rounded-lg bg-[#4F46E5]/[0.08] flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-[#4F46E5]" />
-                      </div>
-                      <span className="text-[13.5px] font-medium text-[#0B1120] leading-snug">
-                        {label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
             </div>
 
             {/* Right Column: Responsive browser/device signature element */}
-            <div className="lg:col-span-6 w-full flex justify-center lg:pt-2">
+            <div className="lg:col-span-5 w-full flex flex-col items-center lg:items-end justify-center lg:pt-2 lg:sticky lg:top-[120px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -195,19 +166,46 @@ export default function WebDevelopmentPage() {
                   </div>
                 </motion.div>
               </motion.div>
+
+              {/* Closing statement, anchored beneath the mockup */}
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="text-[#4F46E5] text-[14px] sm:text-[15px] font-medium leading-relaxed border-t border-[#E2E8F0] pt-5 mt-4 w-full text-center lg:text-left lg:max-w-xl"
+              >
+                A website should do more than exist &mdash; it should help your business grow.
+              </motion.p>
             </div>
 
           </div>
 
-          {/* Closing statement, full width beneath both columns */}
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
+          {/* Capability Grid Section — full width bottom section */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="text-[#4F46E5] text-[14px] sm:text-[15px] font-medium leading-relaxed border-t border-[#E2E8F0] pt-6 mt-12 lg:max-w-md lg:ml-auto lg:text-right"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-14 md:mt-20 pt-10 md:pt-12 border-t border-[#E2E8F0]"
           >
-            A website should do more than exist &mdash; it should help your business grow.
-          </motion.p>
+            <h3 className="text-[11px] font-bold text-[#94A3B8] tracking-[0.2em] uppercase mb-6 text-center sm:text-left">
+              What we build
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+              {highlights.map(({ label, icon: Icon }, i) => (
+                <div
+                  key={i}
+                  className="h-full min-h-[92px] flex items-center gap-4 rounded-2xl border border-[#E2E8F0] bg-white px-5 py-4 hover:border-[#4F46E5]/30 hover:shadow-sm transition-all duration-300"
+                >
+                  <div className="shrink-0 w-10 h-10 rounded-xl bg-[#4F46E5]/[0.08] flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#4F46E5]" />
+                  </div>
+                  <span className="text-[14px] sm:text-[15px] font-semibold text-[#0B1120] leading-snug">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </section>
 
         {/* Footer copyright */}

@@ -15,10 +15,10 @@ import {
 } from 'react-icons/si';
 
 const metrics = [
-  { value: 42, suffix: '+', label: 'Projects Delivered' },
-  { value: 20, suffix: '+', label: 'Workflows Automated' },
+  { value: 10, suffix: '+', label: 'Projects Delivered' },
+  { value: 12, suffix: '+', label: 'Workflows Automated' },
   { value: 98, suffix: '%', label: 'Client Satisfaction' },
-  { value: 10, suffix: '+', label: 'Years Combined Experience' },
+  { value: 2, suffix: '+', label: 'Years Combined Experience' },
 ];
 
 const techLogos = [
