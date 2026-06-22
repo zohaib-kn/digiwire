@@ -23,12 +23,12 @@ import Footer from '@/components/Footer';
 // ── Contact Information Constants (Easy to replace later) ───────────────
 
 const CONTACT_INFO = {
-  email: "hello@digiwire.io",
-  phone: "+1 (555) 019-2834",
-  whatsappUrl: "https://wa.me/15550192834", // Number with country code, no + or spaces
-  location: "New York City, NY",
-  hours: "Monday - Friday, 9:00 AM - 6:00 PM EST",
-  responseTime: "Within 12 hours"
+  email: "info@digi-wire.com",
+  phone: "",
+  whatsappUrl: "https://wa.me/919999999999", // Placeholder wa.me link
+  location: "India (IST)",
+  hours: "Monday – Saturday, 10:00 AM – 6:00 PM IST",
+  responseTime: "within 24 business hours"
 };
 
 const serviceOptions = [
@@ -102,19 +102,28 @@ export default function ContactPage() {
   };
 
   // Form submit handler
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // TODO: Integrate EmailJS, Resend, or your custom endpoint API here.
-    // Example:
-    // fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
-    //   .then(...)
+    try {
+      const res = await fetch("/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    setTimeout(() => {
+      if (res.ok) {
+        setIsSuccess(true);
+      } else {
+        alert("Something went wrong. Please try again or email us at info@digi-wire.com.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Network error. Please check your connection and try again.");
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1500);
+    }
   };
 
   const handleReset = () => {
@@ -176,65 +185,59 @@ export default function ContactPage() {
           {/* LEFT COLUMN: Contact Information Card */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="bg-white border border-[#E2E8F0] rounded-3xl p-6 sm:p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-[#0F172A] mb-6">Contact Info</h2>
+              <h2 className="text-2xl font-bold text-[#0F172A] mb-8">Contact Information</h2>
 
-              <div className="space-y-6">
-                {/* Email */}
+              <div className="space-y-8">
+                {/* Email Support */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center shrink-0 border border-cyan-100/80">
                     <Mail className="w-5 h-5 text-cyan-600" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Us</div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Email Support</div>
+                    <p className="text-xs text-[#475569] mb-1.5">Have a question? Reach out anytime.</p>
                     <a href={`mailto:${CONTACT_INFO.email}`} className="text-base font-semibold text-[#0F172A] hover:text-cyan-600 transition-colors">
                       {CONTACT_INFO.email}
                     </a>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center shrink-0 border border-cyan-100/80">
-                    <Phone className="w-5 h-5 text-cyan-600" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Call Us</div>
-                    <a href={`tel:${CONTACT_INFO.phone}`} className="text-base font-semibold text-[#0F172A] hover:text-cyan-600 transition-colors">
-                      {CONTACT_INFO.phone}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Response Time */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-[#E2E8F0]">
-                    <Clock className="w-5 h-5 text-slate-500" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Response Time</div>
-                    <p className="text-base font-semibold text-[#0F172A]">{CONTACT_INFO.responseTime}</p>
+                    <div className="text-xs text-slate-400 mt-2">
+                      Expected Response: <span className="font-medium text-[#0F172A]">{CONTACT_INFO.responseTime}</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Business Hours */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-[#E2E8F0]">
-                    <Calendar className="w-5 h-5 text-slate-500" />
+                    <Clock className="w-5 h-5 text-slate-500" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Business Hours</div>
-                    <p className="text-base font-semibold text-[#0F172A] leading-tight">{CONTACT_INFO.hours}</p>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Business Hours</div>
+                    <p className="text-xs text-[#475569] mb-1.5">Feel free to connect during working hours.</p>
+                    <p className="text-base font-semibold text-[#0F172A]">Monday – Saturday</p>
+                    <p className="text-sm font-medium text-[#475569]">{CONTACT_INFO.hours.replace("Monday – Saturday, ", "")}</p>
+                    <div className="text-xs text-red-500 font-semibold mt-2">
+                      Sunday: Closed
+                    </div>
                   </div>
                 </div>
 
-                {/* Location */}
+                {/* Corporate Info */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 border border-[#E2E8F0]">
                     <MapPin className="w-5 h-5 text-slate-500" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Headquarters</div>
-                    <p className="text-base font-semibold text-[#0F172A]">{CONTACT_INFO.location}</p>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">Contact Information</div>
+                    <p className="text-base font-semibold text-[#0F172A]">DigiWire</p>
+                    <a href="mailto:info@digi-wire.com" className="text-sm font-medium text-slate-500 hover:text-cyan-600 block mt-1">
+                      info@digi-wire.com
+                    </a>
+                    <a href="https://digi-wire.com" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-cyan-600 hover:underline block mt-0.5">
+                      https://digi-wire.com
+                    </a>
+                    <p className="text-xs text-[#475569] mt-2">
+                      Operating Schedule: Mon–Sat, 10 AM – 6 PM IST
+                    </p>
                   </div>
                 </div>
               </div>
@@ -306,7 +309,7 @@ export default function ContactPage() {
                               id="fullName"
                               type="text"
                               required
-                              placeholder="Zohaib Khan"
+                              placeholder="e.g., jhon"
                               value={formData.fullName}
                               onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
                               className={inputBase}
@@ -325,7 +328,7 @@ export default function ContactPage() {
                             <input
                               id="companyName"
                               type="text"
-                              placeholder="Acme Corp"
+                              placeholder="e.g., DigiWire Solutions"
                               value={formData.companyName}
                               onChange={(e) => setFormData(prev => ({ ...prev, companyName: e.target.value }))}
                               className={inputBase}
@@ -346,7 +349,7 @@ export default function ContactPage() {
                               id="email"
                               type="email"
                               required
-                              placeholder="zohaib@company.com"
+                              placeholder="e.g., contact@company.com"
                               value={formData.email}
                               onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                               className={inputBase}
@@ -363,7 +366,7 @@ export default function ContactPage() {
                             <input
                               id="phone"
                               type="tel"
-                              placeholder="+1 (555) 000-0000"
+                              placeholder="e.g., +91 98765 43210"
                               value={formData.phone}
                               onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                               className={inputBase}
@@ -419,7 +422,7 @@ export default function ContactPage() {
                           id="description"
                           required
                           rows={4}
-                          placeholder="Tell us about your system goals, timeline, and current operational workflow..."
+                          placeholder="Please provide details about your project, timeline, budget preferences, or any specific solutions you would like to discuss..."
                           value={formData.description}
                           onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
                           className="bg-white border border-[#E2E8F0] rounded-xl px-4 py-3 text-[15px] focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/15 transition-all duration-200 text-[#0F172A] resize-none"

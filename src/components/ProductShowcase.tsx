@@ -1,6 +1,6 @@
 "use client";
 
-import { Users, Zap, BarChart3, LayoutDashboard, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TextType from "@/app/ReactBits/TextType";
 import Link from "next/link";
@@ -39,9 +39,9 @@ const PAPER = "#FAFAF8";
 
 function CRMPreview({ active }: { active: boolean }) {
   const leads = [
-    { name: "Acme Corp", stage: "Proposal", bar: 80 },
-    { name: "TechFlow", stage: "Qualified", bar: 55 },
-    { name: "Nexus Inc", stage: "Meeting", bar: 40 },
+    { name: "John Doe (USA)", stage: "Visa Pending", bar: 85 },
+    { name: "Sarah Smith (UK)", stage: "Applied", bar: 60 },
+    { name: "Alex Wong (CA)", stage: "Qualified", bar: 45 },
   ];
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
@@ -74,7 +74,7 @@ function CRMPreview({ active }: { active: boolean }) {
 }
 
 function AutomationPreview({ active }: { active: boolean }) {
-  const steps = ["New lead", "AI score", "Send email", "Notify CRM"];
+  const steps = ["Course enrollment", "Watch lecture", "Submit assignment", "Generate certificate"];
   const [liveStep, setLiveStep] = useState(0);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ function AutomationPreview({ active }: { active: boolean }) {
 
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
-      <div className="text-xs md:text-sm font-medium mb-3" style={{ color: INK }}>Lead onboarding flow</div>
+      <div className="text-xs md:text-sm font-medium mb-3" style={{ color: INK }}>Course progress tracker</div>
       <div className="space-y-2.5">
         {steps.map((step, i) => {
           const lit = active && i < liveStep;
@@ -113,7 +113,7 @@ function AnalyticsPreview({ active }: { active: boolean }) {
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs md:text-sm font-medium" style={{ color: INK }}>Revenue · Q2 2026</span>
+        <span className="text-xs md:text-sm font-medium" style={{ color: INK }}>Sales & Bookings · Q2 2026</span>
         <span className="text-xs md:text-sm font-medium" style={{ color: MOSS }}>+18%</span>
       </div>
       <div className="flex items-end gap-1.5 h-12 mb-1.5">
@@ -140,13 +140,13 @@ function AnalyticsPreview({ active }: { active: boolean }) {
 
 function PortalPreview({ active }: { active: boolean }) {
   const items = [
-    { label: "Website redesign", status: "In progress", pct: 72 },
-    { label: "Invoice #103", status: "Paid", pct: 100 },
-    { label: "Brand kit", status: "Review", pct: 50 },
+    { label: "University of Toronto App", status: "Applied", pct: 90 },
+    { label: "IELTS Score Card", status: "Verified", pct: 100 },
+    { label: "SOP Draft Review", status: "Feedback", pct: 50 },
   ];
   return (
     <div className="rounded-lg p-4" style={{ background: PAPER, border: `1px solid ${HAIRLINE}` }}>
-      <div className="text-xs md:text-sm font-medium mb-3" style={{ color: INK }}>Client · Apex Ltd</div>
+      <div className="text-xs md:text-sm font-medium mb-3" style={{ color: INK }}>Student Portal · Edu-wire</div>
       <div className="space-y-2.5">
         {items.map((item, i) => (
           <div key={item.label}>
@@ -175,56 +175,60 @@ function PortalPreview({ active }: { active: boolean }) {
 
 const products = [
   {
-    Icon: Users,
-    name: "AI CRM Platform",
+    logo: "/Logo/Vyxel%20Logo.png",
+    name: "Vyxel CRM",
     tag: "01",
     description:
-      "A fully AI-driven CRM that helps sales teams manage leads, track deals, and close faster with intelligent automation and real-time pipeline visibility.",
+      "An AI-powered Student Relationship Management (CRM) platform built for study abroad consultancies to manage leads, track applications, and automate enrollment workflows.",
     features: [
-      "Automated lead scoring & routing",
-      "AI email drafting & follow-ups",
-      "Pipeline analytics & forecasting",
+      "AI lead scoring & predictive modeling",
+      "Unified WhatsApp, Email & SMS inbox",
+      "Application pipeline & funnel tracking",
     ],
     Preview: CRMPreview,
+    link: "https://vyxel.digi-wire.com/",
   },
   {
-    Icon: Zap,
-    name: "Workflow Automation Suite",
+    logo: "/Logo/Eidu-wire.png",
+    name: "Edu-wire LMS",
     tag: "02",
     description:
-      "Connect any app, build multi-step automations, and eliminate repetitive manual tasks from your operations without writing a single line of code.",
+      "A comprehensive learning management system (LMS) designed for educational institutions to deliver courses, track student progress, and manage academic curricula.",
     features: [
-      "No-code visual workflow builder",
-      "100+ app integrations",
-      "Real-time trigger monitoring",
+      "Interactive course player & course progress tracking",
+      "Assignments, grading portal & student analytics",
+      "Course builder & content library management",
     ],
     Preview: AutomationPreview,
+    link: "https://lms.edu-wire.com/",
   },
   {
-    Icon: BarChart3,
-    name: "Business Analytics Dashboard",
+    logo: "/Logo/DD%20MAIN%20LOGO.png",
+    name: "DealDesk CRM",
     tag: "03",
     description:
-      "Transform raw business data into clear, actionable dashboards with real-time reporting and AI-powered insights to inform every decision.",
+      "A comprehensive Real Estate CRM and dashboard designed for developers and agencies to manage property inventory, track deal pipelines, and monitor sales performance.",
     features: [
-      "Live data visualization",
-      "Custom KPI dashboards",
-      "Automated weekly reports",
+      "Real-time property inventory tracking",
+      "Visual deal pipeline & agent assignment",
+      "Dynamic sales commissions & analytics",
     ],
     Preview: AnalyticsPreview,
+    link: "https://dev.dealdesk.co.in/dashboard",
   },
   {
-    Icon: LayoutDashboard,
-    name: "Client Portal System",
+    logo: "/Logo/Eidu-wire.png",
+    name: "Edu-wire CRM",
     tag: "04",
     description:
-      "Give your clients a branded self-service portal for project status, files, invoices, and direct communication — all in one place.",
+      "A dedicated student portal and CRM system designed to handle university applications, document verification, and direct counselor communications.",
     features: [
-      "White-label branding",
-      "File & document management",
-      "Integrated invoicing & billing",
+      "Student portal & document checklist",
+      "Counselor assignment & direct chat",
+      "Application status tracking & alerts",
     ],
     Preview: PortalPreview,
+    link: "https://crm.digi-wire.com/login",
   },
 ];
 
@@ -238,7 +242,7 @@ function ProductCard({
   index: number;
 }) {
   const [ref, inView] = useInView(0.15);
-  const { Icon, name, tag, description, features, Preview } = product;
+  const { logo, name, tag, description, features, Preview } = product;
 
   return (
     <div
@@ -252,10 +256,13 @@ function ProductCard({
     >
       <div className="flex items-start justify-between mb-5">
         <div
-          className="icon-box w-10 h-10 rounded-full flex items-center justify-center"
-          style={{ border: `1px solid ${HAIRLINE}` }}
+          className="icon-box h-8 flex items-center justify-center"
         >
-          <Icon className="w-[18px] h-[18px]" style={{ color: INK }} strokeWidth={1.6} />
+          <img
+            src={logo}
+            alt={`${name} logo`}
+            className="h-full w-auto object-contain max-w-[140px]"
+          />
         </div>
         <span className="text-sm tabular-nums" style={{ color: STONE, fontFamily: "ui-monospace, monospace" }}>
           {tag}
@@ -283,7 +290,9 @@ function ProductCard({
       </div>
 
       <Link
-        href="/contact"
+        href={product.link}
+        target={product.link.startsWith("http") ? "_blank" : undefined}
+        rel={product.link.startsWith("http") ? "noopener noreferrer" : undefined}
         className="product-link inline-flex items-center gap-1.5 text-[15px] font-medium pb-0.5"
         style={{ color: INK, borderBottom: "1px solid transparent" }}
       >

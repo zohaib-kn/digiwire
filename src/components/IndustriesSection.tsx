@@ -110,15 +110,15 @@ export default function IndustriesSection() {
   return (
     <section
       id="industries"
-      className="py-20 md:py-28 lg:py-32"
+      className="pt-10 md:pt-14 lg:pt-16 pb-10 md:pb-14 lg:pb-16"
       style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}
     >
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');`}</style>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* Header */}
         <motion.div
-          className="mb-16 max-w-xl"
+          className="mb-16 max-w-4xl"
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}

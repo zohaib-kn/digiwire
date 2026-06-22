@@ -3,25 +3,36 @@ import { FaGithub, FaXTwitter, FaLinkedin } from 'react-icons/fa6';
 
 const footerLinks = {
   Services: [
-    'Design Services',
-    'Software & AI Services',
-    'Custom SaaS Development',
-    'AI Automation Solutions',
+    { label: 'SEO Optimization', href: '/services/seo-optimization' },
+    { label: 'Social Media Management', href: '/services/social-media-management' },
+    { label: 'Web Development', href: '/services/web-development' },
+    { label: 'App Development', href: '/services/app-development' },
+    { label: 'CRM Solutions', href: '/services/crm-solutions' },
+    { label: 'Lead Generation', href: '/services/lead-generation' },
   ],
   Solutions: [
-    'Sales Automation',
-    'Customer Management',
-    'Lead Tracking',
-    'AI Assistants',
+    { label: 'Sales Automation', href: '/#solutions' },
+    { label: 'Customer Management', href: '/#solutions' },
+    { label: 'Lead Tracking', href: '/#solutions' },
+    { label: 'AI Assistants', href: '/#solutions' },
   ],
-  Company: ['About Us', 'Case Studies', 'Careers', 'Blog'],
-  Legal: ['Privacy Policy', 'Terms of Service', 'Security', 'Cookie Policy'],
+  Company: [
+    { label: 'About Us', href: '/about' },
+    { label: 'Our Products', href: '/#products' },
+    { label: 'Contact Us', href: '/contact' },
+    { label: 'Book Demo', href: '/contact' },
+  ],
+  Legal: [
+    { label: 'Privacy Policy', href: '/contact' },
+    { label: 'Terms of Service', href: '/contact' },
+    { label: 'Security Details', href: '/contact' },
+  ],
 };
 
 const socials = [
-  { icon: FaXTwitter, label: 'X (Twitter)' },
-  { icon: FaLinkedin, label: 'LinkedIn' },
-  { icon: FaGithub, label: 'GitHub' },
+  { icon: FaXTwitter, label: 'X (Twitter)', href: 'https://x.com/' },
+  { icon: FaLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/' },
+  { icon: FaGithub, label: 'GitHub', href: 'https://github.com/' },
 ];
 
 export default function Footer() {
@@ -46,10 +57,12 @@ export default function Footer() {
               AI-powered software and SaaS products for modern businesses.
             </p>
             <div className="flex items-center gap-2">
-              {socials.map(({ icon: Icon, label }) => (
+              {socials.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-500 hover:border-cyan-300 hover:text-cyan-600 hover:-translate-y-0.5 transition-all duration-200"
                 >
@@ -67,13 +80,13 @@ export default function Footer() {
               </div>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="group inline-flex items-center gap-1 text-[15px] text-slate-600 hover:text-slate-900 transition-colors"
                     >
                       <span className="relative">
-                        {link}
+                        {link.label}
                         <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-slate-900 group-hover:w-full transition-all duration-200" />
                       </span>
                       <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-200" />

@@ -1,6 +1,6 @@
 'use client'
 
-import LineWaves from "@/app/ReactBits/Line-Waves";
+
 import { ArrowRight, Sparkles, TrendingUp, Globe, Target } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -34,23 +34,7 @@ export default function HeroSection() {
         {/* Soft grid background */}
         <div className="grid-bg-light absolute inset-0 opacity-70" />
 
-        {/* Ambient WebGL LineWaves background animation */}
-        <div className="absolute inset-0 opacity-[0.32] h-full w-full overflow-hidden">
-          <LineWaves
-            speed={0.25}
-            innerLineCount={28}
-            outerLineCount={32}
-            warpIntensity={0.8}
-            rotation={-30}
-            edgeFadeWidth={0.1}
-            colorCycleSpeed={0.8}
-            brightness={0.85}
-            color1="#F97316" // Orange
-            color2="#EC4899" // Pink
-            color3="#06B6D4" // Cyan
-            enableMouseInteraction={false}
-          />
-        </div>
+
 
         {/* Soft radial gradients for premium depth */}
         {/* Cyan glow top right */}
@@ -81,11 +65,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="text-[#0F172A] text-[42px] sm:text-[60px] lg:text-[76px] xl:text-[88px] leading-[0.92] tracking-[-0.04em] font-extrabold"
+            className="text-[#0F172A] text-[48px] sm:text-[60px] lg:text-[60px] xl:text-[66px] leading-[0.92] tracking-[-0.04em] font-extrabold"
           >
             Transforming Businesses
             <br />
-            Through <span className="bg-gradient-to-r from-[#F97316] via-[#EC4899] to-[#7C3AED] bg-clip-text text-transparent">Smart Digital Marketing</span>.
+            Through <span className="text-[#12A8D8]">Smart Digital Marketing.</span>
           </motion.h1>
 
           {/* Paragraph */}

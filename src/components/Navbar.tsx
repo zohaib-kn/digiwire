@@ -53,6 +53,7 @@ const springTransition = {
 export default function Navbar({ palette, setPalette }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [hoveredServices, setHoveredServices] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -107,10 +108,10 @@ export default function Navbar({ palette, setPalette }: NavbarProps) {
             : '0 14px 38px rgba(15,23,42,0.07)',
         }}
         style={{
-          backgroundColor: 'rgba(255,255,255,0.42)',
-          backdropFilter: 'blur(28px) saturate(160%)',
-          WebkitBackdropFilter: 'blur(28px) saturate(160%)',
-          border: '1px solid rgba(255, 250, 250, 1)',
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          border: '1px solid rgba(226, 232, 240, 0.8)',
         }}
         className={`pointer-events-auto flex items-center select-none transition-colors duration-500 ${scrolled
             ? 'h-[50px] w-auto min-w-[185px] cursor-pointer justify-center gap-3 rounded-md px-6 shadow-[0_14px_38px_rgba(15,23,42,0.08)]'
@@ -166,15 +167,65 @@ export default function Navbar({ palette, setPalette }: NavbarProps) {
               transition={transitionConfig}
               className="hidden items-center gap-9 md:flex"
             >
-              {mainNavLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-[15px] font-semibold text-slate-800 transition-colors duration-300 hover:text-slate-950"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {mainNavLinks.map((link) => {
+                if (link.label === 'Services') {
+                  return (
+                    <div
+                      key={link.label}
+                      className="relative py-2"
+                      onMouseEnter={() => setHoveredServices(true)}
+                      onMouseLeave={() => setHoveredServices(false)}
+                    >
+                      <button
+                        type="button"
+                        className="flex items-center gap-1 text-[15px] font-semibold text-slate-800 transition-colors duration-300 hover:text-slate-950 focus:outline-none"
+                      >
+                        <span>Services</span>
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${hoveredServices ? 'rotate-180' : ''}`} />
+                      </button>
+                      
+                      <AnimatePresence>
+                        {hoveredServices && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                            transition={{ duration: 0.2, ease: smoothEase }}
+                            style={{
+                              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                              border: '1px solid rgba(226, 232, 240, 0.9)',
+                            }}
+                            className="absolute left-1/2 top-full z-[1000] mt-2 w-64 -translate-x-1/2 rounded-2xl p-4 shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+                          >
+                            <div className="flex flex-col gap-1">
+                              {servicesList.map((service) => (
+                                <Link
+                                  key={service.label}
+                                  href={service.href}
+                                  onClick={handleLinkClick}
+                                  className="rounded-xl px-3 py-2 text-[13px] font-medium text-slate-700 transition-all duration-300 hover:bg-white/60 hover:text-slate-950"
+                                >
+                                  {service.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-[15px] font-semibold text-slate-800 transition-colors duration-300 hover:text-slate-950"
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </motion.div>
           )}
         </AnimatePresence>
@@ -219,10 +270,8 @@ export default function Navbar({ palette, setPalette }: NavbarProps) {
             exit={{ opacity: 0, y: -10, scale: 0.97 }}
             transition={{ duration: 0.45, ease: smoothEase }}
             style={{
-              backgroundColor: 'rgba(255,255,255,0.5)',
-              backdropFilter: 'blur(30px) saturate(160%)',
-              WebkitBackdropFilter: 'blur(30px) saturate(160%)',
-              border: '1px solid rgba(255,255,255,0.6)',
+              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+              border: '1px solid rgba(226, 232, 240, 0.9)',
             }}
             className="pointer-events-auto mt-3 w-[calc(100vw-32px)] max-w-md overflow-hidden rounded-[28px] shadow-[0_24px_60px_rgba(15,23,42,0.10)] md:max-w-2xl"
           >
@@ -234,16 +283,18 @@ export default function Navbar({ palette, setPalette }: NavbarProps) {
                   </h3>
 
                   <div className="flex flex-col gap-2">
-                    {mainNavLinks.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        onClick={handleLinkClick}
-                        className="inline-block rounded-xl px-3 py-2 text-base font-semibold text-slate-800 transition-all duration-300 hover:translate-x-1 hover:bg-white/60 hover:text-slate-950"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
+                    {mainNavLinks
+                      .filter((link) => link.label !== 'Services')
+                      .map((link) => (
+                        <Link
+                          key={link.label}
+                          href={link.href}
+                          onClick={handleLinkClick}
+                          className="inline-block rounded-xl px-3 py-2 text-base font-semibold text-slate-800 transition-all duration-300 hover:translate-x-1 hover:bg-white/60 hover:text-slate-950"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
                   </div>
                 </div>
 

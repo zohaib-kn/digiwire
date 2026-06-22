@@ -77,7 +77,7 @@ function SolutionRow({ s, index }: { s: typeof solutions[number]; index: number 
     <motion.div
       variants={rowVariants}
       whileHover="hover"
-      className="group relative grid grid-cols-[auto_1fr] sm:grid-cols-[5rem_auto_1fr] items-start gap-x-5 sm:gap-x-8 py-8 md:py-10 cursor-default"
+      className="group relative grid grid-cols-[auto_1fr] sm:grid-cols-[2.5rem_auto_1fr] items-start gap-x-4 sm:gap-x-5 py-8 md:py-10 cursor-default"
       style={{ borderTop: `1px solid ${HAIRLINE}` }}
     >
       {/* Index number */}
@@ -101,7 +101,7 @@ function SolutionRow({ s, index }: { s: typeof solutions[number]; index: number 
       </motion.div>
 
       {/* Text */}
-      <div className="relative pl-5 sm:pl-6">
+      <div className="relative pl-4 sm:pl-5">
         <motion.div
           className="absolute left-0 top-0 bottom-0 w-px"
           style={{ background: MOSS, originY: 0 }}
@@ -124,15 +124,15 @@ export default function SolutionsSection() {
   return (
     <section
       id="solutions"
-      className="py-20 md:py-28 lg:py-32"
+      className="pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-14 lg:pb-16"
       style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}
     >
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');`}</style>
 
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* Header */}
         <motion.div
-          className="mb-16 max-w-xl"
+          className="mb-16 max-w-4xl"
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}

@@ -183,7 +183,7 @@ function PlatformDiagram() {
 
 export default function WhyDigiWire() {
   return (
-    <section className="py-20 md:py-28 lg:py-32" style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}>
+    <section className="pt-10 md:pt-14 lg:pt-16 pb-20 md:pb-28 lg:pb-32" style={{ background: PAPER, fontFamily: "'Space Grotesk', 'Inter', system-ui, sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
         @keyframes ping {
@@ -192,7 +192,7 @@ export default function WhyDigiWire() {
         .animate-ping { animation: ping 1.8s cubic-bezier(0,0,0.2,1) infinite; }
       `}</style>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left: copy */}
           <div>
